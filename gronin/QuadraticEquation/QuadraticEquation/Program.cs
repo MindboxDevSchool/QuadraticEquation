@@ -6,7 +6,7 @@ namespace QuadraticEquationSolver
     {
         static void Main(string[] args)
         {
-            QuadraticEquation d=new QuadraticEquation(5, -5, 131);
+            QuadraticEquation d=new QuadraticEquation(5, -5, 31);
             d.Solve();
             Console.WriteLine(d.ToString());
         }
