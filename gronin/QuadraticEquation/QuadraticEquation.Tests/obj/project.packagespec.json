@@ -1,0 +1,68 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "E:\\C# stuff\\Mindbox\\QuadraticEquation\\gronin\\QuadraticEquation\\QuadraticEquation.Tests\\QuadraticEquation.Tests.csproj",
+    "projectName": "QuadraticEquation.Tests",
+    "projectPath": "E:\\C# stuff\\Mindbox\\QuadraticEquation\\gronin\\QuadraticEquation\\QuadraticEquation.Tests\\QuadraticEquation.Tests.csproj",
+    "outputPath": "E:\\C# stuff\\Mindbox\\QuadraticEquation\\gronin\\QuadraticEquation\\QuadraticEquation.Tests\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Microsoft\\Xamarin\\NuGet"
+    ],
+    "originalTargetFrameworks": [
+      "netcoreapp3.1"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "netcoreapp3.1": {
+        "projectReferences": {
+          "E:\\C# stuff\\Mindbox\\QuadraticEquation\\gronin\\QuadraticEquation\\QuadraticEquation\\QuadraticEquation.csproj": {
+            "projectPath": "E:\\C# stuff\\Mindbox\\QuadraticEquation\\gronin\\QuadraticEquation\\QuadraticEquation\\QuadraticEquation.csproj"
+          }
+        }
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netcoreapp3.1": {
+      "dependencies": {
+        "Microsoft.NET.Test.Sdk": {
+          "target": "Package",
+          "version": "[16.4.0, )"
+        },
+        "NUnit3TestAdapter": {
+          "target": "Package",
+          "version": "[3.15.1, )"
+        },
+        "nunit": {
+          "target": "Package",
+          "version": "[3.12.0, )"
+        }
+      },
+      "imports": [
+        "net461",
+        "net462",
+        "net47",
+        "net471",
+        "net472",
+        "net48"
+      ],
+      "assetTargetFallback": true,
+      "warn": true,
+      "frameworkReferences": {
+        "Microsoft.NETCore.App": {
+          "privateAssets": "all"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+    }
+  }
+}
