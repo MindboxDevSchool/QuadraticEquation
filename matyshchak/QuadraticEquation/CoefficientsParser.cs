@@ -14,8 +14,8 @@ namespace QuadraticEquation
                 throw new FormatException("Invalid format. Expecting three real numbers separated by spaces");
             }
 
-            var coefficients = Regex.Split(input, "\\s+")
-                .Where(s => !string.IsNullOrEmpty(s))
+            var coefficients = Regex
+                .Split(input, " ")
                 .Select(double.Parse)
                 .ToList();
             
