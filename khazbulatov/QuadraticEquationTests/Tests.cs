@@ -5,7 +5,7 @@ using QuadraticEquation;
 namespace QuadraticEquationTests
 {
     [TestFixture]
-    public class Tests
+    public class QuadraticEquationTests
     {
         [Test]
         public void ParseCoefficients_ParsesCorrectly()
