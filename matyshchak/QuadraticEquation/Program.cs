@@ -7,7 +7,9 @@ namespace QuadraticEquation
         private static void Main()
         {
             Console.WriteLine(
-                "Write three coefficients of your quadratic equation separated by spaces.\nExample: 1 -2 3.14\nType 'quit' to terminate.");
+                "Write three coefficients of your quadratic equation separated by spaces.\n" + 
+                "Example: 1 -2 3.14\n" + 
+                "Type 'quit' to terminate.");
             
             while (true)
             {
@@ -17,17 +19,19 @@ namespace QuadraticEquation
                 try
                 {
                     var coefficients = CoefficientsParser.Parse(input);
-                    if (CoefficientsValidator.CoefficientsAreInvalid(coefficients))
-                    {
-                        Console.WriteLine("Coefficients are invalid. Try again.");
-                        continue;
-                    }                    
                     var roots = Solver.FindRoots(coefficients);
                     Outputer.Output(roots);
                 }
-                catch (FormatException e)
+                catch (EquationInputFormatException)
                 {
-                    Console.WriteLine(e.Message);
+                    Console.WriteLine(
+                        "Invalid format. Expecting three real numbers separated by spaces.\n" +
+                        "Example: 1 -2 3.14");
+                }
+                catch (InvalidCoefficientsException)
+                {
+                    Console.WriteLine(
+                        "Coefficients are invalid. Try again.");
                 }
             }
         }

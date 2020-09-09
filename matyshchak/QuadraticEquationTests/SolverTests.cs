@@ -7,6 +7,25 @@ namespace QuadraticEquationTests
     public class SolverTests
     {
         [Test]
+        public void When_coefficients_are_invalid_throws_custom_exception()
+        {    
+            var coefficients = (0.0, 0.0, 1.0);
+            
+            Assert.That(() => Solver.FindRoots(coefficients), Throws.TypeOf<InvalidCoefficientsException>());
+        }
+        
+        [Test]
+        public void When_first_coefficient_equals_zero_returns_expected_roots()
+        {    
+            var coefficients = (0.0, 1.0, 1.0);
+            var expectedRoots = new List<double>{-1.0};
+            
+            var actualRoots = Solver.FindRoots(coefficients);
+            
+            Assert.That(actualRoots, Is.EqualTo(expectedRoots));
+        }
+        
+        [Test]
         public void When_discriminant_is_positive_returns_list_with_two_expected_roots()
         {
             var coefficients = (1.0, -3.0, -4.0);

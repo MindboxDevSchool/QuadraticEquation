@@ -8,9 +8,9 @@ namespace QuadraticEquationTests
     {
         [TestCase("Hello123")]
         [TestCase("  1  2  ")]
-        public void Parsing_unexpected_input_throws_format_exception(string input)
+        public void Parsing_unexpected_input_throws_custom_format_exception(string input)
         {
-            Assert.That(() => CoefficientsParser.Parse(input), Throws.TypeOf<FormatException>());
+            Assert.That(() => CoefficientsParser.Parse(input), Throws.TypeOf<EquationInputFormatException>());
         }
         
         [Test]
