@@ -11,7 +11,8 @@ namespace QuadraticEquation
             var regex = new Regex("([+-]?(\\d[.])?\\d+\\s*){3}");
             if (!regex.IsMatch(input))
             {
-                throw new FormatException("Invalid format. Expecting three real numbers separated by spaces");
+                throw new FormatException(
+                    "Invalid format. Expecting three real numbers separated by spaces.\nExample: 1 -2 3.14");
             }
 
             var coefficients = Regex

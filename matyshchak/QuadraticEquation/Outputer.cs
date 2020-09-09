@@ -13,10 +13,10 @@ namespace QuadraticEquation
                     Console.WriteLine("There are no real roots");
                     break;
                 case 1:
-                    Console.WriteLine($"There is a single real root: x = {roots[0]}");
+                    Console.WriteLine($"There is a single real root:\nx = {roots[0]}");
                     break;
                 case 2:
-                    Console.WriteLine($"Real roots are: x1 = {roots[0]}, x2 = {roots[1]}");
+                    Console.WriteLine($"Real roots are:\nx1 = {roots[0]}\nx2 = {roots[1]}");
                     break;
             }
         }
