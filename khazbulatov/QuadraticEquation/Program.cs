@@ -19,11 +19,11 @@ namespace QuadraticEquation
         public static (double a, double b, double c) ParseCoefficients(string equation)
         {
             Match equationMatch = EquationRegex.Match(equation);
-            GroupCollection equationMatchGroups = equationMatch.Groups;
             if (!equationMatch.Success)
             {
                 throw new FormatException();
             }
+            GroupCollection equationMatchGroups = equationMatch.Groups;
             double a = double.Parse(equationMatchGroups[AGroup].Value.Replace(" ", ""));
             double b = double.Parse(equationMatchGroups[BGroup].Value.Replace(" ", ""));
             double c = double.Parse(equationMatchGroups[CGroup].Value.Replace(" ", ""));

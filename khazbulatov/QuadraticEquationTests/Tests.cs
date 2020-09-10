@@ -8,7 +8,7 @@ namespace QuadraticEquationTests
     public class QuadraticEquationTests
     {
         [Test]
-        public void ParseCoefficients_ParsesCorrectly()
+        public void ParseCoefficients_Parses()
         {
             // Arrange
             string equation = "13.37x^2 - .2x + 1 = 0";
@@ -22,7 +22,7 @@ namespace QuadraticEquationTests
         }
         
         [Test]
-        public void ParseCoefficients_ThrowsCorrectly()
+        public void ParseCoefficients_Throws()
         {
             // Arrange
             string equation = "This is an equation, believe me!";
@@ -35,7 +35,7 @@ namespace QuadraticEquationTests
         }
         
         [Test]
-        public void ValidateCoefficients_AcceptsCorrectly()
+        public void ValidateCoefficients_Accepts()
         {
             // Arrange
             double a = 6, b = 11, c = -35;
@@ -48,7 +48,7 @@ namespace QuadraticEquationTests
         }
         
         [Test]
-        public void ValidateCoefficients_DeniesCorrectly()
+        public void ValidateCoefficients_Denies()
         {
             // Arrange
             double a = 0, b = 0, c = 0;
@@ -61,7 +61,7 @@ namespace QuadraticEquationTests
         }
 
         [Test]
-        public void GetDiscriminant_CalculatesCorrectly()
+        public void GetDiscriminant_Calculates()
         {
             // Arrange
             double a = 3, b = -14, c = -5;
@@ -75,7 +75,7 @@ namespace QuadraticEquationTests
         }
 
         [Test]
-        public void GetRootCount_CalculatesCorrectly()
+        public void GetRootCount_Calculates()
         {
             // Arrange
             double discriminant = 1;
@@ -89,7 +89,7 @@ namespace QuadraticEquationTests
         }
 
         [Test]
-        public void GetRoots_OneRoot_CalculatesCorrectly()
+        public void GetRoots_OneRoot_Calculates()
         {
             // Arrange
             double a = 4, b = -12;
@@ -104,12 +104,12 @@ namespace QuadraticEquationTests
         }
         
         [Test]
-        public void GetRoots_TwoRoots_CalculatesCorrectly()
+        public void GetRoots_TwoRoots_Calculates()
         {
             // Arrange
-            double a = 1, b = -6;
-            double discriminant = 8;
-            double[] expectedRoots = {3 + Math.Sqrt(2), 3 - Math.Sqrt(2)};
+            double a = 2, b = -1;
+            double discriminant = 121;
+            double[] expectedRoots = {3, -2.5};
 
             // Act
             double[] actualRoots = Program.GetRoots(a, b, discriminant);
@@ -119,15 +119,11 @@ namespace QuadraticEquationTests
         }
         
         [Test]
-        public void Solve_CalculatesCorrectly()
+        public void Solve_Calculates()
         {
             // Arrange
-            double a = 1, b = 2, c = -4;
-            double[] expectedRoots =
-            {
-                -1 + Math.Sqrt(5),
-                -1 - Math.Sqrt(5)
-            };
+            double a = -3, b = 0, c = 75;
+            double[] expectedRoots = {-5, 5};
 
             // Act
             double[] actualRoots = Program.Solve(a, b, c);
