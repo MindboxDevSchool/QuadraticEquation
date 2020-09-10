@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuadraticEquation", "QuadraticEquation\QuadraticEquation.csproj", "{88DD3F88-C304-47DE-82A6-8B71E1107E86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestQuadraticEquation", "TestQuadraticEquation\TestQuadraticEquation.csproj", "{73842478-E644-4B08-8CF2-E72BFCB41581}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88DD3F88-C304-47DE-82A6-8B71E1107E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88DD3F88-C304-47DE-82A6-8B71E1107E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88DD3F88-C304-47DE-82A6-8B71E1107E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88DD3F88-C304-47DE-82A6-8B71E1107E86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73842478-E644-4B08-8CF2-E72BFCB41581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73842478-E644-4B08-8CF2-E72BFCB41581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73842478-E644-4B08-8CF2-E72BFCB41581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73842478-E644-4B08-8CF2-E72BFCB41581}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
