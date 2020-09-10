@@ -1,0 +1,13 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0952ae1e_002D799d_002D4ddf_002Db855_002D9f1bdbf5910a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;QuadraticEquationSolver.Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\Admin\RiderProjects\QuadraticEquationSolver\QuadraticEquationSolver.Tests" Presentation="&amp;lt;QuadraticEquationSolver.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8521e8a0_002D46f0_002D4f71_002D98cd_002De188450a7017/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Solution /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ad1780f3_002D8e63_002D41c0_002D85a8_002D1febc0b4d506/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;QuadraticEquationSolver.Tests&amp;gt; #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\Admin\RiderProjects\QuadraticEquationSolver\QuadraticEquationSolver.Tests" Presentation="&amp;lt;QuadraticEquationSolver.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e152f3e3_002Dee99_002D468d_002Db1c1_002D435fba8de2a2/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from &amp;lt;QuadraticEquationSolver.Tests&amp;gt; #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\Admin\RiderProjects\QuadraticEquationSolver\QuadraticEquationSolver.Tests" Presentation="&amp;lt;QuadraticEquationSolver.Tests&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
