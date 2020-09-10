@@ -11,6 +11,7 @@
 .idea/**/shelf
 .idea
 gronin
+gronin/**
 # Generated files
 .idea/**/contentModel.xml
 
