@@ -8,18 +8,25 @@ namespace quadraticEquations
     {
         static void Main(string[] args)
         {
-            // var input = GetInput("x^2-2x+1");
-            // var coefficents = Parse(input);
-            // var a = coefficents[0];
-            // var b = coefficents[1];
-            // var determinator = CalculateDiscriminant(coefficents);
-            // CheckDeterminator(determinator);
-            // FindRoots(determinator, a, b);
+            var input = GetInput();
+            var coefficents = Parse(input);
+            var a = coefficents[0];
+            var b = coefficents[1];
+            var determinator = CalculateDiscriminant(coefficents);
+            if (CheckDeterminator(determinator))
+            {
+                var roots = FindRoots(determinator, a, b);
+                Output(roots);
+            }
+            else
+            {
+                Console.WriteLine("Уравнение не имеет корней");
+            }
         }
         
-        public static string GetInput(string input)
+        public static string GetInput()
         {
-            throw new NotImplementedException();
+            return Console.ReadLine();
         }
         
         public static double[] Parse(string input)
@@ -128,6 +135,7 @@ namespace quadraticEquations
 
         public static void Output(double[] roots)
         {
+            Console.WriteLine("Корни уравнения:");
             Console.WriteLine(roots[0]);
             Console.WriteLine(roots[1]);
         }
