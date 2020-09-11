@@ -1,1 +1,2 @@
-Здесь должен лежать солюшн
+# Quadratic Equation solver
+Completed by Arthur Khazbulatov
