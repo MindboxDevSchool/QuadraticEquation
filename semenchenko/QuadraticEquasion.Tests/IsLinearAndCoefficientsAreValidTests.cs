@@ -1,50 +1,50 @@
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace ConsoleApp1.Tests
+namespace QuadraticEquation.Tests
 {
     public class IsLinearAndCoefficientsAreValidTests
     {
         [Test]
-        public void QuadraticEquasionCoeffs_ReturnsFalse()
+        public void QuadraticEquationCoeffs_ReturnsFalse()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 2}, {"b", 3}, {"c", 1}};
-            var quadatic = new Quadatic();
+            double[] coefficients = new double[] {2, 3, 1};
+            var quadratic = new Quadratic();
 
-            bool isLinear = quadatic.IsLinearAndCoefficientsAreValid(coeffitients);
+            bool isLinear = quadratic.IsLinearAndCoefficientsAreValid(coefficients);
 
-            Assert.AreEqual(isLinear, false);
+            Assert.IsFalse(isLinear);
         }
 
         [Test]
-        public void LinearEquasionValidCoeffs_ReturnsTrue()
+        public void LinearEquationValidCoeffs_ReturnsTrue()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 0}, {"b", 3}, {"c", 0}};
-            var quadatic = new Quadatic();
+            double[] coefficients = new double[] {0, 3, 0};
+            var quadratic = new Quadratic();
 
-            bool isLinear = quadatic.IsLinearAndCoefficientsAreValid(coeffitients);
+            bool isLinear = quadratic.IsLinearAndCoefficientsAreValid(coefficients);
 
-            Assert.AreEqual(isLinear, true);
+            Assert.IsTrue(isLinear);
         }
         
         [Test]
-        public void LinearEquasionInvalidCoeffs_ReturnsFalse()
+        public void LinearEquationInvalidCoeffs_ReturnsFalse()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 0}, {"b", 0}, {"c", -10}};
-            var quadatic = new Quadatic();
+            double[] coefficients = new double[] {0, 0, -10};
+            var quadratic = new Quadratic();
 
-            bool isLinear = quadatic.IsLinearAndCoefficientsAreValid(coeffitients);
+            bool isLinear = quadratic.IsLinearAndCoefficientsAreValid(coefficients);
 
-            Assert.AreEqual(isLinear, false);
+            Assert.IsFalse(isLinear);
         }
 
         [Test]
         public void InvalidInput_RaisesException()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double>();
-            var quadratic = new Quadatic();
+            double[] coefficients = new double[]{};
+            var quadratic = new Quadratic();
 
-            Assert.Throws<KeyNotFoundException>((() => quadratic.IsLinearAndCoefficientsAreValid(coeffitients)));
+            Assert.Throws<KeyNotFoundException>((() => quadratic.IsLinearAndCoefficientsAreValid(coefficients)));
         }
     }
 }

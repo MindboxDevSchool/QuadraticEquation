@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
 
-namespace ConsoleApp1
+namespace QuadraticEquation
 {
-    public class Quadatic
+    public class Quadratic
     {
         public void SolveQuadraticEquation()
         {
             string inputType = DefineInput();
             // We put data parse inside input, because in some cases we need to check if the input
-            // is correct (by parsing it) iteratively, e.g. in case of inputting the whole equasion.
-            Dictionary<string, double> coefficients = InputEquation(inputType);
+            // is correct (by parsing it) iteratively, e.g. in case of inputting the whole equation.
+            double[] coefficients = InputEquation(inputType);
             // One of redundant variable here (like double[] solutions), left for more readability.
             bool equationIsLinear = IsLinear(coefficients);
             if (equationIsLinear)
@@ -42,19 +42,21 @@ namespace ConsoleApp1
         
         string DefineInput()
         {
-            var inputOptions = new HashSet<string> {"indices"};
+            var inputOptions = new Dictionary<string, string> {{"1", "indices"}};
             Console.WriteLine("How do you want to input equation ('indices')?");
+            Console.WriteLine("1 - indices");
             string input;
             do
             {
                 input = Console.ReadLine();
-            } while (!(inputOptions.Contains(input)));
-            return input;
+            } while (!(inputOptions.ContainsKey(input ?? throw new NullReferenceException())));
+            return inputOptions[input];
         }
+        
 
         // input equation depending on input type
         // returns expression string or indices string
-        Dictionary<string, double> InputEquation(string inputType)
+        double[] InputEquation(string inputType)
         {
             switch (inputType)
             {
@@ -63,35 +65,35 @@ namespace ConsoleApp1
                 //case "expression":
                 //    return InputAsExpression();
                 default:
-                    return new Dictionary<string, double>();
+                    return new double[]{};
             }
         }
 
         // reads equation's indices from command line
         // returns indices as string
-        Dictionary<string, double> InputAsIndices()
+        double[] InputAsIndices()
         {
             string indices = "";
-            indices += InputOneIndex("a") + " ";
-            indices += InputOneIndex("b") + " ";
-            indices += InputOneIndex("c") + " ";
+            indices += InputIndex("a") + " ";
+            indices += InputIndex("b") + " ";
+            indices += InputIndex("c") + " ";
             return ParseEquation(indices, "indices");
         }
 
-        string InputOneIndex(string idxNeeded)
+        string InputIndex(string indexNeeded)
         {
-            string idx;
+            string index;
             do
             {
-                Console.WriteLine("Input '" + idxNeeded + "' index:");
-                idx = Console.ReadLine();
-            } while (int.TryParse(idx, out _));
-            return idx;
+                Console.WriteLine("Input '" + indexNeeded + "' index:");
+                index = Console.ReadLine();
+            } while (!double.TryParse(index, out _));
+            return index;
         }
 
         // reads equation from command line
         // returns expression as string
-        Dictionary<string, double> InputAsExpression()
+        double[] InputAsExpression()
         {
             do
             {
@@ -108,7 +110,7 @@ namespace ConsoleApp1
         }
 
         // parses equation as string, returns dictionary
-        public Dictionary<string, double> ParseEquation(string equation, string inputType)
+        private double[] ParseEquation(string equation, string inputType)
         {
             switch (inputType)
             {
@@ -117,31 +119,26 @@ namespace ConsoleApp1
                 //case "expression":
                 //    return ParseAsExpression(equation);
                 default:
-                    return new Dictionary<string, double>();
+                    return new double[]{};
             }
         }
 
         // parses indices from "a b c" string, returns dictionary
-        public Dictionary<string, double> ParseAsIndices(string equation)
+        public double[] ParseAsIndices(string equation)
         {
             string[] arr = equation.Split(' ');
             if (arr.Length < 3)
             {
                 throw new ArgumentException("Not enough coefficients!");
             }
-            Dictionary<string, double> indices = new Dictionary<string, double>
-            {
-                ["a"] = ParseOneIndex(arr[0]), 
-                ["b"] = ParseOneIndex(arr[1]), 
-                ["c"] = ParseOneIndex(arr[2])
-            };
+            double[] indices = new double[] { ParseOneIndex(arr[0]), ParseOneIndex(arr[1]), ParseOneIndex(arr[2]) };
             return indices;
         }
+        
         //additional parsing method
         static double ParseOneIndex(string idx)
         {
-            double val = 0;
-            if (!double.TryParse(idx, out val))
+            if (!double.TryParse(idx, out var val))
             {
                 throw new InvalidCastException("Error while parsing indices");
             }
@@ -149,60 +146,47 @@ namespace ConsoleApp1
             {
                 return val;
             }
-        } 
+        }
 
-        //static Dictionary<string, double> ParseAsExpression(string equation)
-        //{
-        //    var coefficients = new Dictionary<string, double>
-        //    {
-        //        ["a"] = 0, ["b"] = 0, ["c"] = 0
-        //    };
-        //    string[] arr = equation.Split(' ');
-        //    bool positive = true;
-        //    bool wasSign = false;
-        //    
-        //    return coefficients;
-        //}
-        
         // check if coefficients are accessible
-        void checkCoefficients(Dictionary<string, double> coefficients)
+        void checkCoefficients(double[] coefficients)
         {
-            if (!coefficients.ContainsKey("a") || !coefficients.ContainsKey("b") || !coefficients.ContainsKey("c"))
+            if (coefficients.Length != 3)
             {
                 throw new KeyNotFoundException("Coefficients not found!");
             }
         }
         
         //check if equation is linear
-        public bool IsLinear(Dictionary<string, double> coefficients)
+        public bool IsLinear(double[] coefficients)
         {
             checkCoefficients(coefficients);
-            return coefficients["a"] == 0;
+            return coefficients[0] == 0;
         }
         
         //check if equation is linear and solvable
-        public bool IsLinearAndCoefficientsAreValid(Dictionary<string, double> coefficients)
+        public bool IsLinearAndCoefficientsAreValid(double[] coefficients)
         {
             checkCoefficients(coefficients);
-            return coefficients["a"] == 0 && coefficients["b"] != 0;
+            return coefficients[0] == 0 && coefficients[1] != 0;
         }
 
         //solve linear equation, returns double[] {x}
-        public double[] SolveLinearEquationWithCoefficients(Dictionary<string, double> coefficients)
+        public double[] SolveLinearEquationWithCoefficients(double[] coefficients)
         {
             checkCoefficients(coefficients);
-            if (coefficients["b"] == 0)
+            if (coefficients[1] == 0)
             {
-                throw new ArgumentException("Division by zero");
+                throw new DivideByZeroException();
             }
-            return new[] { -1 * coefficients["c"] / coefficients["b"]};
+            return new[] { -1 * coefficients[2] / coefficients[1]};
         }
         
         // calculates D as b^2 - 4ac, returns double
-        public double CalculateDiscriminant(Dictionary<string, double> coefficients)
+        public double CalculateDiscriminant(double[] coefficients)
         {
             checkCoefficients(coefficients);
-            return Math.Pow(coefficients["b"], 2) - 4 * coefficients["a"] * coefficients["c"];
+            return Math.Pow(coefficients[1], 2) - 4 * coefficients[0] * coefficients[2];
         }
 
         // returns a message that there's no solutions
@@ -212,16 +196,16 @@ namespace ConsoleApp1
         }
 
         // calculates x1 and x2, returns double[] = {x1, x2} for 2 solutions or {x} for 1 
-        public double[] CalculateSolutions(Dictionary<string, double> coefficients, double d)
+        public double[] CalculateSolutions(double[] coefficients, double d)
         {
             checkCoefficients(coefficients);
-            if (coefficients["a"] == 0)
+            if (coefficients[0] == 0)
             {
-                throw new ArgumentException("Division by zero");
+                throw new DivideByZeroException();
             }
-            double x1 = (-coefficients["b"] + Math.Sqrt(d)) / (2 * coefficients["a"]);
-            double x2 = (-coefficients["b"] - Math.Sqrt(d)) / (2 * coefficients["a"]);
-            return Math.Abs(x1 - x2) < 0.0000000000001 ? new[] {x1} : new[] {x1, x2};
+            double x1 = (-coefficients[1] + Math.Sqrt(d)) / (2 * coefficients[0]);
+            double x2 = (-coefficients[1] - Math.Sqrt(d)) / (2 * coefficients[0]);
+            return Math.Abs(x1 - x2) < Double.Epsilon ? new[] {x1} : new[] {x1, x2};
         }
 
         // prints solutions

@@ -2,53 +2,53 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace ConsoleApp1.Tests
+namespace QuadraticEquation.Tests
 {
     public class CalculateSolutionsTests
     {
         [Test]
         public void ReturnsMultipleSolutions()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 2}, {"b", 3}, {"c", 1}};
+            double[] coefficients = new double[] {2, 3, 1};
             float D = 1;
-            var quadatic = new Quadatic();
+            var quadratic = new Quadratic();
 
-            double[] solutions = quadatic.CalculateSolutions(coeffitients, D);
+            double[] solutions = quadratic.CalculateSolutions(coefficients, D);
 
-            Assert.AreEqual(solutions, new double[] {-0.5, -1});
+            Assert.AreEqual(new[] {-0.5, -1}, solutions);
         }
 
         [Test]
         public void ReturnSingleSolution()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 1}, {"b", 0}, {"c", 0}};
+            double[] coefficients = new double[] {1, 0, 0};
             float D = 0;
-            var quadatic = new Quadatic(); 
+            var quadratic = new Quadratic(); 
 
-            double[] solutions = quadatic.CalculateSolutions(coeffitients, D);
+            double[] solutions = quadratic.CalculateSolutions(coefficients, D);
 
             var doubles = new double[] {0};
-            Assert.AreEqual(solutions, doubles);
+            Assert.AreEqual(doubles, solutions);
         }
         
         [Test]
         public void InvalidInput_RaisesException()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 2}, {"b", 3}, {"d", 1}};
+            double[] coefficients = new double[] {2, 3};
             float D = 0;
-            var quadratic = new Quadatic();
+            var quadratic = new Quadratic();
             
-            Assert.Throws<KeyNotFoundException>((() => quadratic.CalculateSolutions(coeffitients, D)));
+            Assert.Throws<KeyNotFoundException>((() => quadratic.CalculateSolutions(coefficients, D)));
         }
         
         [Test]
         public void ZeroInQuadraticCoefficient_RaisesArgumentException()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 0}, {"b", 0}, {"c", 1}};
+            double[] coefficients = new double[] {0, 0, 1};
             float D = 0;
-            var quadatic = new Quadatic();
+            var quadratic = new Quadratic();
             
-            Assert.Throws<ArgumentException>((() => quadatic.CalculateSolutions(coeffitients, D)));
+            Assert.Throws<DivideByZeroException>((() => quadratic.CalculateSolutions(coefficients, D)));
         }
     }
 }

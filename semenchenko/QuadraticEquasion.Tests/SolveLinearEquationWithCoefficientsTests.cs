@@ -2,38 +2,39 @@ using System;
 using System.Collections.Generic;
 using NUnit.Framework;
 
-namespace ConsoleApp1.Tests
+namespace QuadraticEquation.Tests
 {
     public class SolveLinearEquationWithCoefficientsTests
     {
         [Test]
         public void ValidCoefficients_ReturnValidResult()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 2}, {"b", 3}, {"c", 1}};
-            var quadatic = new Quadatic();
+            double[] coefficients = new double[] {2, 3, 1};
+            var quadratic = new Quadratic();
 
-            double[] solutions = quadatic.SolveLinearEquationWithCoefficients(coeffitients);
+            double[] solutions = quadratic.SolveLinearEquationWithCoefficients(coefficients);
 
-            Assert.AreEqual(solutions, new [] {-1.0/3.0});
+            Assert.AreEqual(new [] {-1.0/3.0}, solutions);
         }
 
         [Test]
         public void ZeroInLinearCoefficient_RaisesArgumentException()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {{"a", 2}, {"b", 0}, {"c", 1}};
-            var quadatic = new Quadatic();
+            double[] coefficients = new double[] {2, 0, 1};
+            var quadratic = new Quadratic();
             
-            Assert.Throws<ArgumentException>((() => quadatic.SolveLinearEquationWithCoefficients(coeffitients)));
+            Assert.Throws<DivideByZeroException>((() => 
+                quadratic.SolveLinearEquationWithCoefficients(coefficients)));
         }
 
         [Test]
         public void NoCoefficient_RaisesNotFoundException()
         {
-            Dictionary<string, double> coeffitients = new Dictionary<string, double> {};
-            var quadatic = new Quadatic();
+            double[] coefficients = new double[] {};
+            var quadratic = new Quadratic();
             
             Assert.Throws<KeyNotFoundException>((() => 
-                quadatic.SolveLinearEquationWithCoefficients(coeffitients)));
+                quadratic.SolveLinearEquationWithCoefficients(coefficients)));
         }
     }
 }
