@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace QuadraticEquation
 {
@@ -13,13 +14,15 @@ namespace QuadraticEquation
         {
             return _b * _b - 4 * _a * _c;
         }
-        
+
         public List<double> Solve()
         {
+            Debug.Assert(IsValid());
+
             double discriminant = CalculateDiscriminant();
 
             List<double> roots = new List<double>();
-            
+
             if (Math.Abs(discriminant) < Double.Epsilon)
             {
                 double root = -_b / (2 * _a);
@@ -35,7 +38,12 @@ namespace QuadraticEquation
 
             return roots;
         }
-        
+
+        public bool IsValid()
+        {
+            return _a != 0;
+        }
+
         public QuadraticEquation(double a, double b, double c)
         {
             _a = a;
@@ -43,8 +51,7 @@ namespace QuadraticEquation
             _c = c;
         }
     }
-     
-    
+
     static class Program
     {
         public static double InputCoefficient(string coefficientName)
@@ -59,11 +66,11 @@ namespace QuadraticEquation
 
             return coefficient;
         }
-        
+
         public static QuadraticEquation InputEquation()
         {
             double a, b = 0, c = 0;
-            
+
             Console.WriteLine("Введите коэффициенты уравнения ax^2 + bx + c = 0: ");
             a = InputCoefficient("a");
             b = InputCoefficient("b");
@@ -72,12 +79,12 @@ namespace QuadraticEquation
             QuadraticEquation quadraticEquation = new QuadraticEquation(a, b, c);
             return quadraticEquation;
         }
-        
+
         public static void PrintSolution(List<double> roots)
         {
             switch (roots.Count)
             {
-                case 0: 
+                case 0:
                     Console.WriteLine("Рациональных корней нет");
                     break;
                 case 1:
@@ -86,17 +93,21 @@ namespace QuadraticEquation
                 case 2:
                     Console.WriteLine("Рациональные корни: {0}, {1}", roots[0], roots[1]);
                     break;
-                default:
-                    //exception;
-                break;
             }
         }
-        
+
         static void Main(string[] args)
         {
             QuadraticEquation quadraticEquation = InputEquation();
-            List<double> roots = quadraticEquation.Solve();
-            PrintSolution(roots);
+            if (quadraticEquation.IsValid())
+            {
+                List<double> roots = quadraticEquation.Solve();
+                PrintSolution(roots);
+            }
+            else
+            {
+                Console.WriteLine("Уравнение не является квадратным");
+            }
         }
     }
 }
