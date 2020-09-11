@@ -9,7 +9,7 @@ namespace QuadraticEquation
         private double _b;
         private double _c;
 
-        private double CalculateDiscriminant()
+        public double CalculateDiscriminant()
         {
             return _b * _b - 4 * _a * _c;
         }
