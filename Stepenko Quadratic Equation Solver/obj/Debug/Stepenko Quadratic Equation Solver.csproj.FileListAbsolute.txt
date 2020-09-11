@@ -1,0 +1,6 @@
+C:\Users\Злата\RiderProjects\Stepenko Quadratic Equation Solver\Stepenko Quadratic Equation Solver\bin\Debug\Stepenko_Quadratic_Equation_Solver.exe
+C:\Users\Злата\RiderProjects\Stepenko Quadratic Equation Solver\Stepenko Quadratic Equation Solver\bin\Debug\Stepenko_Quadratic_Equation_Solver.pdb
+C:\Users\Злата\RiderProjects\Stepenko Quadratic Equation Solver\Stepenko Quadratic Equation Solver\obj\Debug\Stepenko Quadratic Equation Solver.csprojAssemblyReference.cache
+C:\Users\Злата\RiderProjects\Stepenko Quadratic Equation Solver\Stepenko Quadratic Equation Solver\obj\Debug\Stepenko Quadratic Equation Solver.csproj.CoreCompileInputs.cache
+C:\Users\Злата\RiderProjects\Stepenko Quadratic Equation Solver\Stepenko Quadratic Equation Solver\obj\Debug\Stepenko_Quadratic_Equation_Solver.exe
+C:\Users\Злата\RiderProjects\Stepenko Quadratic Equation Solver\Stepenko Quadratic Equation Solver\obj\Debug\Stepenko_Quadratic_Equation_Solver.pdb
